@@ -1,0 +1,20 @@
+.list-group-item {
+  background-color: transparent;
+  position: relative;
+  color: #fff;
+  text-align: start;
+
+  &::before {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  * {
+    position: relative;
+  }
+}

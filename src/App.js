@@ -1,11 +1,19 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Pokemon from "./components/Pokemon";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "font-awesome/css/font-awesome.min.css";
+import "./theme.scss";
+import "./App.scss";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Pokemon from "./routes/Pokemon/Pokemon";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <Pokemon id="28"></Pokemon>
+      <Router>
+        <Routes>
+          <Route path="/pokemon/:id" element={<Pokemon />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
