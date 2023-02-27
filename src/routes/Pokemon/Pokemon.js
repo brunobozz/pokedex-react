@@ -7,21 +7,32 @@ import PokemonAttributes from "../../components/PokemonAttributes/PokemonAttribu
 import { useParams } from "react-router-dom";
 
 export default function Pokemon() {
-  const [pokemon, setPokemon] = React.useState({});
+  const [pokemon, setPokemon] = React.useState(null);
   const { id } = useParams();
-  var { type } = "";
 
   React.useEffect(() => {
     if (id !== null) {
       PokemonService.getData("pokemon/" + id).then((data) => {
         setPokemon(data);
-        type = data.types[0].type.name;
       });
     }
   }, [id]);
 
+  if (pokemon) {
+    return renderPokemon(pokemon);
+  } else {
+    return (
+      <div>
+        <p>Carregando</p>
+      </div>
+    );
+  }
+}
+
+function renderPokemon(pokemon) {
+  let type = pokemon.types[0].type.name;
   return (
-    <section className="pokebg bg-light">
+    <section className={"pokebg bg-type-" + type}>
       <div className="card border-0">
         <PokemonHeader
           pokeId={pokemon.id}

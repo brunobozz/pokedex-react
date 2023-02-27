@@ -2,30 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./PokemonImage.scss";
 
-function convertId(id) {
-  if (!Number.isInteger(id) || id < 0) {
+export default function PokemonImage(props) {
+  if (!Number.isInteger(props.pokeId) || props.pokeId < 0) {
     throw new Error("ID inválido");
   }
-  const strId = String(id);
+  const strId = String(props.pokeId);
   const paddedId = strId.padStart(3, "0");
-  return paddedId;
-}
-
-export default function PokemonImage(props) {
-  const [imgId, setImgId] = useState();
-  const [imgType, setImgType] = useState();
-
-  useEffect(() => {
-    if (props.pokeId !== undefined) {
-      setImgId(convertId(props.pokeId));
-    }
-  }, [props.pokeId]);
-
-  useEffect(() => {
-    if (props.pokeType !== undefined) {
-      setImgType(props.pokeType);
-    }
-  }, [props.pokeType]);
 
   return (
     <div className="card-img">
@@ -40,10 +22,10 @@ export default function PokemonImage(props) {
       <img
         src={
           "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
-          imgId +
+          paddedId +
           ".png"
         }
-        className={`card-img-top ${imgType ? `bg-type-${imgType}` : "coco"}`}
+        className={"card-img-top bg-type-" + props.pokeType}
         alt="Pokémon"
       />
     </div>
