@@ -5,6 +5,7 @@ import "./theme.scss";
 import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Pokemon from "./routes/Pokemon/Pokemon";
+import PokemonList from "./routes/PokemonList/PokemonList";
 
 function App(props) {
   return (
@@ -12,6 +13,7 @@ function App(props) {
       <Router>
         <Routes>
           <Route path="/pokemon/:id" element={<Pokemon />} />
+          <Route path="/pokemon-list" element={<PokemonList />} />
         </Routes>
       </Router>
     </div>

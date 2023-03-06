@@ -29,11 +29,12 @@ $typeSteel: #5a8ea2;
 $typeWater: #3692dc;
 
 //cinzas
-$preto: #3f413d;
-$cinza200: #636663;
-$cinza300: #c8c8c8;
-$cinza400: #efefef;
-$branco: #ffffff;
+$black: #111111;
+$gray100: #3f413d;
+$gray200: #636663;
+$gray300: #c8c8c8;
+$gray400: #efefef;
+$white: #ffffff;
 
 $input-placeholder-color: rgba(0, 0, 0, 0.2);
 
@@ -70,11 +71,12 @@ $custom-colors: (
   "type-steel": $typeSteel,
   "type-water": $typeWater,
   //cinzas
-  "preto": $preto,
-  "cinza200": $cinza200,
-  "cinza300": $cinza300,
-  "cinza400": $cinza400,
-  "branco": $branco
+  "black": $black,
+  "gray100": $gray100,
+  "gray200": $gray200,
+  "gray300": $gray300,
+  "gray400": $gray400,
+  "white": $white
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);

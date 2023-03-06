@@ -1,0 +1,14 @@
+.search {
+  background-color: #cc1717;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  input {
+    border-radius: 25px;
+    border: 0;
+  }
+  .btn {
+    border-radius: 25px;
+    pointer-events: none;
+  }
+}

@@ -1,4 +1,5 @@
 import "./PokemonHeader.scss";
+import { Link } from "react-router-dom";
 
 export default function PokemonHeader(props) {
   return (
@@ -11,9 +12,11 @@ export default function PokemonHeader(props) {
       <h5 className="card-header-title text-capitalize">
         {props.pokeId} - {props.pokeName}
       </h5>
-      <button className="btn text-light">
-        <i className="fa fa-search"></i>
-      </button>
+      <Link to="/pokemon-list/">
+        <button className="btn text-light">
+          <i className="fa fa-search"></i>
+        </button>
+      </Link>
     </div>
   );
 }
