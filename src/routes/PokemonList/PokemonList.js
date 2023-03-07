@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PokemonTable from "../../components/PokemonTable/PokemonTable";
+import PokemonListItem from "../../components/PokemonListItem/PokemonListItem";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import { getPokemonList } from "../../graphql/get-pokemons";
 import "./PokemonList.scss";
@@ -11,7 +11,6 @@ export default function PokemonList() {
     async function fetchPokemonList() {
       const results = await getPokemonList();
       setPokemonList(results.pokemon_v2_pokemon);
-      console.log(results);
     }
 
     fetchPokemonList();
@@ -21,7 +20,11 @@ export default function PokemonList() {
     return (
       <section className="pokemon-list bg-primary">
         <SearchForm></SearchForm>
-        <PokemonTable pokeList={pokemonList}></PokemonTable>;
+        <div className="list-group list-group-flush bg-primary">
+          {pokemonList.map((item) => (
+            <PokemonListItem key={item.id} pokemon={item}></PokemonListItem>
+          ))}
+        </div>
       </section>
     );
   }
