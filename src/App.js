@@ -5,9 +5,9 @@ import "./theme.scss";
 import "./App.scss";
 import {
   BrowserRouter as Router,
+  redirect,
   Route,
   Routes,
-  Redirect,
 } from "react-router-dom";
 import Pokemon from "./routes/Pokemon/Pokemon";
 import PokemonList from "./routes/PokemonList/PokemonList";
@@ -17,7 +17,7 @@ function App(props) {
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/" render={() => <Redirect to="/pokemon/1" />} />
+          <Route path="/" element={<Pokemon />} />
           <Route path="/pokemon/:id" element={<Pokemon />} />
           <Route path="/pokemon-list" element={<PokemonList />} />
         </Routes>

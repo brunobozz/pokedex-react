@@ -10,14 +10,17 @@ export default function Pokemon() {
   const [pokemon, setPokemon] = useState(null);
   const { id } = useParams();
 
-  useEffect(() => {
-    async function fetchPokemonInfo() {
-      const results = await getPokemonInfo(id);
-      setPokemon(results);
-    }
+  // Define o valor padrão do parâmetro 'id' como '1' caso ele não seja fornecido na URL
+  const pokemonId = id || "1";
 
+  useEffect(() => {
     fetchPokemonInfo();
-  }, [id]);
+  }, [pokemonId]);
+
+  async function fetchPokemonInfo() {
+    const results = await getPokemonInfo(pokemonId);
+    setPokemon(results);
+  }
 
   if (pokemon) {
     let type = pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name;

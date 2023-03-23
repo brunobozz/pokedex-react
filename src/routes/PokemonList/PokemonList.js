@@ -33,11 +33,13 @@ export default function PokemonList() {
   if (pokemonList) {
     return (
       <section className="pokemon-list bg-primary">
-        <SearchForm onSearch={pokeSearch} />
-        <div className="list-group list-group-flush bg-primary">
-          {filteredPokemonList.map((item) => (
-            <PokemonListItem key={item.id} pokemon={item}></PokemonListItem>
-          ))}
+        <div className="content">
+          <SearchForm onSearch={pokeSearch} />
+          <div className="list-group list-group-flush bg-primary">
+            {filteredPokemonList.map((item) => (
+              <PokemonListItem key={item.id} pokemon={item}></PokemonListItem>
+            ))}
+          </div>
         </div>
       </section>
     );
