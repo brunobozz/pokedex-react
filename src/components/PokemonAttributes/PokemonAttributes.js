@@ -9,6 +9,7 @@ export default function PokemonAttributes(props) {
         <div className="d-flex">
           {props.pokemon.pokemon_v2_pokemontypes.map((type, index) => (
             <div
+              key={index}
               className={
                 " d-flex align-items-center ms-2 ps-0 badge bg-type-" +
                 type.pokemon_v2_type.name
