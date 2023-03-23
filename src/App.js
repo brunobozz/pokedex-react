@@ -12,6 +12,7 @@ function App(props) {
     <div className="App">
       <Router>
         <Routes>
+          <Route exact path="/" render={() => <Redirect to="/pokemon/1" />} />
           <Route path="/pokemon/:id" element={<Pokemon />} />
           <Route path="/pokemon-list" element={<PokemonList />} />
         </Routes>
